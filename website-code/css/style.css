@@ -1,0 +1,398 @@
+/*The CSS styles are for mobile view except otherwise specified
+using a media */
+
+/* {
+  border-radius: 0 !important;
+}*/
+body{
+	/*max-width:1000px; max width as specified in the brief*/
+	Font-Family: 'Open Sans', Sans-Serif;/*Google font*/
+}
+
+h1, h2, h3, h4, h5, h6{
+	Font-Family: 'Raleway', Sans-Serif;/*Google font*/
+}
+
+ul{
+  /*Remove all styles from Unordered list unless specified*/
+  list-style-type: none;
+}
+
+.br{
+    border-radius: .25em;
+}
+
+/*on wider screen media devices with min width of 768, the maximum width of content container
+is 1200px and the container of the inner container is 100%*/
+
+
+
+/* ------------------------------ Header ------------------------------------------*/
+
+
+@media screen and (min-width: 768px) {
+	.inner_container{
+		max-width: 1200px;
+	}
+	.outer_container{
+		width: 100%;
+	}
+}
+
+.header{
+padding: 0px;
+width: 100%;
+height: inherit;
+}
+
+/*the secondary header, the desk top logo is disabled on mobile view*/
+.extra_header, .logo_desk, .full_extra_header{
+	display: none;
+}
+
+.desc{
+	font-size:1em;
+}
+
+/* on screens 768 and wider the following rules apply*/
+@media screen and (min-width: 768px) {
+	/*header is fixed*/
+	.site_header{
+		position: fixed;
+	  top: 0;
+	  right: 0;
+	  left: 0;
+	  z-index: 1030
+	}
+	.header{
+		max-width: 1200px;
+		display: flex;
+		justify-content: space-between;
+		height: inherit;
+	}
+	/*show the secondary header*/
+	.extra_header{
+		display: block;
+		max-width: 1200px;
+	}
+	/*show the secondary header main container*/
+	.full_extra_header{
+		display: block;
+    background-color: #005A6D; /*dark green*/
+	}
+
+	/*the Menu text that displays on mobile near the hamburger icon not to appear on mobile*/
+	.header  .navbar-brand{
+		display: none;
+	}
+	.logo_mob{
+		display: none;/*disable the mobile version logo*/
+	}
+	.logo_desk{
+	display: inline-block;/*display large screen logo*/
+	}
+}/*end of @media*/
+
+.header .navbar .navbar-brand .nav-item {/*this overides bootstrap padding and margin for nav-items on the header nav only*/
+	padding: 0;
+	margin: 0;
+}
+.header .nav-link{
+	color: black;/*remove boostrap default color*/
+}
+
+.header .nav-link:hover{
+	border-bottom-style: solid;
+	border-width: medium;
+	border-color: #249B43; /*brand green*/
+}
+
+/*this is used to style active nav */
+#home .home, #blog .blog, #news .news, #about .about{
+  border-bottom-style: solid;
+	border-width:medium;
+	border-color: #249B43; /*brand green*/
+}
+.donate, .donate:hover{
+	color: white;
+	text-decoration: none;
+}
+
+#donate .donate{/*when on donate page donate button color changes*/
+  background-color: #249B43; /*brand green*/
+  border-color: inherit;
+}
+
+.header .navbar-nav{
+	padding-right: 0.8em;
+}
+
+/*change the color of toggle icon to brand green*/
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#249B43' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")
+}
+
+.extra_header > .navbar{
+  background-color: #005A6D; /*dark green*/
+}
+
+.extra_header .navbar-nav{
+	flex: 50%;
+}
+.extra_header .navbar-nav .nav-item{
+	flex: 30%;
+}
+.subscribe{
+	flex: 50%;
+}
+
+/* ------------------------------ main ------------------------------------------*/
+.main{
+	display: flex;
+	flex: 100%;
+  flex-direction: column;
+  background-color:#F6EDD9;
+}
+
+@media screen and (min-width: 768px) {
+	/*due to the fixed header used, margin was added to the containers of the top main elements.
+	A sticky would have been a better choice but was causing fluctuations at particular point when
+	scrolling. This issued couldn't be fixed due to limited time */
+  .header_margin{
+    margin-top: 11.3em;
+  }
+}/*end of @media*/
+
+.readmore{
+  color: black;
+  border-width: thin;
+  border-style: solid;
+  background-color: #ffc107;
+}
+
+.readmore:hover{
+  color: black;
+background-color: #dca90f;
+}
+
+/*----- index-main ------*/
+.carousel_main{
+	width: 100%;
+}
+.carousel_outer{
+  background-color: #fff;
+}
+.c_pt_pb{
+	padding: 1.250em 0;
+}
+@media screen and (min-width: 768px) {
+	.carousel_main{
+		max-width: 1200px;
+    margin-top: 11.5em;/*same as header_margin above*/
+	}
+}/*end of @media*/
+
+/*make carousel caption transparent for easy reading*/
+.carousel_main .carousel-caption {
+  position: absolute;
+	background-color:rgba(34,34,34,0.8);
+}
+
+.carousel-item a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.second_section{
+	width: 100%;
+}
+.sections_holder{
+display: flex;
+flex-direction: column;
+}
+.second_section_child{
+	text-align: center;
+	text-decoration: none;
+	background-color:#F6EDD9;
+}
+
+@media screen and (min-width: 768px) {
+	.sections_holder{
+		flex-direction:row;
+    background-color:#F6EDD9;
+	}
+	.second_section_child{
+		flex: 32%;
+	}
+}/*end of @media*/
+
+.banner .jumbotron{
+background-color: #F6EDD9;
+width: 100%;
+}
+
+
+/*---- About usmain -----*/
+.introduce {
+  background-color: #EFFDEF;
+}
+
+.ourMission ul{
+  list-style-type:disc;/*add the default style to this ul element. */
+}
+
+.ta .jumbotron{
+	background-color: #EFFDEF;
+}
+
+
+/*----- blog and news main ----*/
+.blog_cat_container, .news_cat{
+  background-color:#F6EDD9;
+}
+.post, .featured{
+  border-style:solid;
+  border-width: thin;
+  border-color: #005A6D;
+  background-color:white;
+}
+.featured img{
+  max-height: 100%;
+  max-width: 100%;
+}
+.card img{
+  max-width: 100%;
+  max-height: 50%;
+}
+
+.post_comments {
+  border-style:solid;
+  border-width: thin;
+  border-color: #005A6D;
+}
+
+.post{
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .article{
+    margin-top: 13.2em;/*same as header_margin above*/
+  }
+}/*end of @media*/
+
+.page-link {
+  color:#000;
+  background-color: #F6EDD9;
+  border: 1px solid #005A6D;
+}
+
+.page-item.active .page-link {
+  background-color: #ffc107;
+  border-color: #005A6D;
+  color:#000;
+}
+.page-link:hover {
+  color: #000;
+  background-color: #ffc107;
+  border-color: #005A6D;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: #fff;
+  border-color: #005A6D;
+}
+
+.read{
+  color:#000;
+}
+
+.read:hover{
+  color:#005A6D;
+  text-decoration: none;
+}
+
+/*-----Donate Page-----*/
+.donate_statement {
+  background-color: #F1FCF1;
+}
+
+.error {
+  color: #FD3652;
+}
+
+.success{
+  color: #005A6D;
+}
+
+
+/*---------------------------------------- footer -------------------------------*/
+.footer_container{
+	background-color: #005A6D;
+}
+
+.footer{
+	color: #F6EDD9;
+}
+
+
+.our_friends a{
+  color: #F6EDD9;
+}
+
+footer h2{
+  font-size: 1.5em;
+  margin-top: 0.5em;
+}
+
+.contact .nav-link, .socialMedia_icon a{
+	color:white;
+}
+
+
+
+
+/* --------------------------------------- admin ------------------------------------*/
+.signIn {
+  background-color: #249B43;
+  color:white;
+  /*border-width: thin;*/
+  /*border-style: solid;*/
+  /*border-color: #005A6D;*/
+}
+/*hover effect on button read more*/
+.signIn:hover {
+  color: white;
+  background-color: #005A6D;
+}
+
+.admin_header{
+	width: 100%;
+}
+/*show the secondary header main container*/
+.full_admin_header{
+	background-color: #005A6D; /*dark green*/
+}
+
+@media screen and (min-width: 768px) {
+	.admin_header{
+		max-width: 1200px;
+	}
+	/*show the secondary header main container*/
+}
+
+.user, .user a{
+	color: white;
+}
+
+.admin_main table{
+	background-color: white;
+	padding: 1.25em;
+}
+
+.stat{
+	border-bottom-style:solid;
+	border-width: thin;
+	border-color: #005A6D;
+}
